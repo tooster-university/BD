@@ -11,7 +11,7 @@ def main(arg):
     for line in sys.stdin.readlines():
         cmd = json.loads(line)
         retval = engine.execute_command(cmd)
-        print(retval)
+        print(json.dumps(retval))
         if 'open' in cmd and retval['status'] != "OK":
             return
 

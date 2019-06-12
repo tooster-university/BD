@@ -1,0 +1,89 @@
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[140, "support", 213, 286, 0, 0], [145, "support", 226, 283, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[2, 0, 0], [5, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[213, 286], [226, 283]]}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[191, 321], [213, 286], [226, 283], [255, 302], [279, 324]]}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[104, "support", 279, 324, 0, 0], [110, "protest", 230, 263, 0, 0], [126, "protest", 200, 335, 0, 0], [140, "support", 213, 286, 0, 0], [145, "support", 226, 283, 0, 0], [150, "protest", 255, 302, 0, 0], [156, "support", 249, 348, 0, 0], [169, "protest", 191, 321, 0, 0], [173, "protest", 192, 345, 0, 0]]}
+{"status": "OK", "data": [[104, "support", 279, 324, 0, 0], [110, "protest", 230, 263, 0, 0], [126, "protest", 200, 335, 0, 0], [140, "support", 213, 286, 0, 0], [145, "support", 226, 283, 0, 0], [150, "protest", 255, 302, 0, 0], [156, "support", 249, 348, 0, 0], [169, "protest", 191, 321, 0, 0], [173, "protest", 192, 345, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}

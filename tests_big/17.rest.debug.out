@@ -1,0 +1,91 @@
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader but doesnt exist"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK", "data": [[1, 0, 0], [6, 0, 0], [8, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader but doesnt exist"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader but doesnt exist"}
+{"status": "OK", "data": [[1, 0, 0], [6, 0, 0], [8, 0, 0]]}
+{"status": "OK", "data": [[218, 310], [232, 297]]}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "OK", "data": [[116, "support", 200, 350, 0, 0], [124, "protest", 234, 285, 0, 0], [140, "support", 218, 310, 0, 0], [177, "support", 229, 312, 0, 0], [195, "support", 196, 272, 0, 0], [199, "protest", 232, 297, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "OK", "data": []}
+{"status": "OK", "data": [[1, 0, 0], [2, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "OK", "data": [[1, 0, 0], [2, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "OK", "data": []}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK"}
+{"status": "OK", "data": [[196, 272], [200, 350], [218, 310], [221, 313], [222, 326], [229, 312], [232, 297], [233, 333], [234, 285], [238, 358], [244, 319]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": [[1, 0, 0], [2, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "OK", "data": [[116, "support", 200, 350, 0, 0], [118, "support", 221, 313, 0, 0], [124, "protest", 234, 285, 0, 0], [132, "protest", 244, 319, 0, 0], [135, "protest", 233, 333, 0, 0], [138, "support", 222, 326, 0, 0], [140, "support", 218, 310, 0, 0], [157, "protest", 229, 312, 0, 0], [170, "protest", 238, 358, 0, 0], [177, "support", 229, 312, 0, 0], [195, "support", 196, 272, 0, 0], [199, "protest", 232, 297, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": [[1, 0, 0], [2, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": []}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK", "data": [[1, 0, 0], [2, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": [[1, 0, 0], [2, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": [[8, 0, 1, "true"]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": [[116, "support", 200, 350, 0, 0], [118, "support", 221, 313, 0, 0], [124, "protest", 234, 285, 0, 0], [132, "protest", 244, 319, 0, 0], [133, "protest", 224, 353, 0, 1], [135, "protest", 233, 333, 0, 0], [138, "support", 222, 326, 0, 0], [140, "support", 218, 310, 0, 0], [149, "support", 258, 345, 0, 0], [157, "protest", 229, 312, 0, 0], [170, "protest", 238, 358, 0, 0], [177, "support", 229, 312, 0, 0], [195, "support", 196, 272, 0, 0], [199, "protest", 232, 297, 0, 0]]}
+{"status": "OK", "data": [[8, 0, 1, "true"]]}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}

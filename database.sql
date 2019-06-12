@@ -1,6 +1,7 @@
+BEGIN; -- file executed as single transaction
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
-CREATE TYPE id_type_enum AS enum ('user', 'organization', 'project', 'action');
+CREATE TYPE id_type_enum AS enum ('user', 'authority', 'project', 'action');
 
 CREATE TABLE ID (
     id          numeric         PRIMARY KEY,
@@ -37,8 +38,7 @@ CREATE TABLE actions (
 
 CREATE VIEW trolls AS
     SELECT user_id, upvotes, downvotes FROM users
-    WHERE downvotes > upvotes
-    ORDER BY downvotes-upvotes DESC, user_id;
+    WHERE downvotes > upvotes;
 
 ---
 CREATE OR REPLACE FUNCTION new_user() RETURNS TRIGGER AS  $BODY$
@@ -58,11 +58,14 @@ CREATE OR REPLACE FUNCTION update_votes() RETURNS TRIGGER AS $BODY$
 BEGIN
     IF NEW.is_upvote THEN
         UPDATE actions SET upvotes = upvotes + 1 WHERE NEW.action_id = action_id;
-        UPDATE users   SET upvotes = upvotes + 1 WHERE NEW.user_id   = user_id;
+        UPDATE users u SET upvotes = u.upvotes + 1 
+        FROM actions a WHERE a.action_id = NEW.action_id AND a.user_id = u.user_id;
     ELSE
-        UPDATE actions SET downvotes = downvotes - 1 WHERE NEW.action_id = action_id;
-        UPDATE users   SET downvotes = downvotes - 1 WHERE NEW.user_id   = user_id;
+        UPDATE actions SET downvotes = downvotes + 1 WHERE NEW.action_id = action_id;
+        UPDATE users u SET downvotes = u.downvotes + 1 
+        FROM actions a WHERE a.action_id = NEW.action_id AND a.user_id = u.user_id;
     END IF;
+    RETURN NEW;
 END;
 $BODY$ LANGUAGE plpgsql;
 
@@ -100,16 +103,5 @@ CREATE TRIGGER on_new_action_trig
 CREATE USER app WITH ENCRYPTED PASSWORD 'md596d1b2d8ca22e9afe63b1fc7bb10b9de';
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM app;
 GRANT SELECT, UPDATE, INSERT ON ALL TABLES IN SCHEMA public TO app;
-
-(SELECT user_id, 0 as upvotes, 0 as downvotes FROM users
-WHERE user_id NOT IN 
-    (SELECT user_id FROM votes JOIN actions ON (action_id)
-    WHERE TRUE {} {})) -- AND action_id= AND project_id=
-UNION
-(SELECT user_id, 
-    COUNT(CASE WHEN is_upvote THEN 1 END) AS upvotes, 
-    SUM(CASE WHEN NOT is_upvote THEN 1 END) AS downvotes 
-    FROM votes JOIN actions ON (action_id) 
-WHERE TRUE {} {} -- AND action_id= AND project_id=
-GROUP BY user_id) 
-ORDER BY user_id;
+GRANT SELECT ON trolls TO app;
+COMMIT;

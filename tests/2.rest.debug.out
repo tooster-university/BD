@@ -1,0 +1,17 @@
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader but doesnt exist"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}

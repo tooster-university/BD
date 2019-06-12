@@ -1,0 +1,65 @@
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[189, 315], [204, 311]]}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": [[109, "support", 204, 311, 0, 0], [167, "support", 241, 293, 0, 0], [175, "support", 189, 315, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[2, 0, 0], [4, 0, 0], [6, 0, 0], [7, 0, 0]]}
+{"status": "OK", "data": [[189, 315], [204, 311], [241, 293]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "OK", "data": []}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK", "data": [[104, "support", 279, 296, 0, 0], [109, "support", 204, 311, 0, 0], [133, "protest", 203, 278, 0, 0], [148, "protest", 218, 303, 0, 0], [151, "support", 243, 345, 0, 0], [166, "protest", 238, 273, 0, 0], [167, "support", 241, 293, 0, 0], [172, "support", 190, 317, 0, 0], [175, "support", 189, 315, 0, 0], [179, "protest", 188, 348, 0, 0], [182, "support", 274, 289, 0, 0], [193, "support", 239, 335, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}

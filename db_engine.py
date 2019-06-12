@@ -1,5 +1,6 @@
 import psycopg2
 from enum import Enum
+from decimal import Decimal
 
 
 class Mode(Enum):
@@ -14,6 +15,17 @@ class Command():
         self.engine = engine
         self.mode = mode
         self.binding = binding
+
+    # converts tuples from result_set to arrays, Decimals to int literals
+    def __sanitize_types__(self, data):
+        for i in range(len(data)): # map tuples to arrays in place
+            data[i] = list(data[i])
+            for j in range(len(data[i])):
+                if isinstance(data[i][j], Decimal):
+                    data[i][j] = int(data[i][j])
+                if isinstance(data[i][j], bool):
+                    data[i][j] = ('true' if data[i][j] else 'false')
+        return data
 
     def execute(self, args):
         success, data = False, None
@@ -34,8 +46,14 @@ class Command():
             # bump timestamp on success
             if 'timestamp' in args:
                 self.engine.timestamp = args['timestamp']
+                            # update last activity
+                cur = self.engine.connection.cursor()
+                cur.execute("UPDATE users SET last_activity=to_timestamp({})::timestamp WHERE user_id = {};".format(
+                            args['timestamp'], args['member']))
+                cur.close()
+
             if data is not None:
-                retval['data'] = data
+                retval['data'] = self.__sanitize_types__(data)
         return retval
 
 
@@ -52,7 +70,7 @@ class DB_Engine():
             "upvote":   Command(self, Mode.USER, lambda args: self.db_vote(+1, args)),
             "downvote": Command(self, Mode.USER, lambda args: self.db_vote(-1, args)),
             "actions":  Command(self, Mode.LEADER, self.db_actions),
-            "project":  Command(self, Mode.LEADER, self.db_projects),
+            "projects": Command(self, Mode.LEADER, self.db_projects),
             "votes":    Command(self, Mode.LEADER, self.db_votes),
             "trolls":   Command(self, Mode.NONE, self.db_trolls)
         }
@@ -71,37 +89,45 @@ class DB_Engine():
             return True
 
         cur = self.connection.cursor()
-        cur.execute("SELECT is_leader FROM users WHERE user_id = {} AND pwd_hash = crypt('{}', pwd_hash);".format(
+        cur.execute("""SELECT is_leader, last_activity FROM users 
+                        WHERE user_id = {} AND pwd_hash = crypt('{}', pwd_hash);""".format(
             auth_data['member'], auth_data['password']))
         row = cur.fetchone()
         cur.close()
-        # member doesn't exist
+        # member doesn't exist or auth error
         if row is None:
             if mode == Mode.USER:  # create new member
                 cur = self.connection.cursor()
                 # add new user
-                cur.execute("INSERT INTO users VALUES ({}, crypt('{}', gen_salt('md5')), FALSE, {}, 0, 0);".format(
+                cur.execute("""INSERT INTO users VALUES 
+                                ({}, crypt('{}', gen_salt('md5')), FALSE, to_timestamp({})::timestamp, 0, 0);""".format(
                     auth_data['member'], auth_data['password'], auth_data['timestamp']))
+                # exception thrown if user exists means auth error
+                # otherwise new user was created
                 cur.close()
-            return False
+                return True
+            else: # auth error or leader doesn't exist
+                return False
         # member exists AKA auth succeeded:
         else:
-            is_leader = row[0]
             # check if frozen
             cur = self.connection.cursor()
-            cur.execute(
+            # let SQL handle leap years and other shenanigans
+            cur.execute( 
                 """SELECT is_leader FROM users WHERE user_id = {} 
-                    AND to_timestamp({})::timestamp - last_activity <= INTERVAL '365 days';""")
+                    AND to_timestamp({})::timestamp <= last_activity + INTERVAL '1 year';""".format(
+                        auth_data['member'], auth_data['timestamp']))
             row = cur.fetchone()
             if row is None:
                 return False  # user is frozen
 
-            # update last activity
-            cur.execute("UPDATE users SET last_activity=to_timestamp({})::timestamp WHERE user_id = {};".format(
-                auth_data['timestamp'], auth_data['member']))
+            # # update last activity
+            # cur.execute("UPDATE users SET last_activity=to_timestamp({})::timestamp WHERE user_id = {};".format(
+            #     auth_data['timestamp'], auth_data['member']))
 
+            cur.close()
             # check permissions
-            return mode == Mode.USER or mode == Mode.LEADER and is_leader
+            return mode == Mode.USER or mode == Mode.LEADER and row[0]
 
     def db_open(self, args):
         self.connection = psycopg2.connect("dbname={} user={} password={}".format(
@@ -150,7 +176,8 @@ class DB_Engine():
             args['authority']) if 'authority' in args else ""
         cur = self.connection.cursor()
         cur.execute("""SELECT action_id, 
-                        (CASE WHEN is_support THEN 'support' ELSE 'protest') AS type,
+                        (CASE WHEN is_support THEN 'support' ELSE 'protest' END) AS type,
+                        project_id,
                         authority_id,
                         upvotes,
                         downvotes FROM actions WHERE TRUE {} {} {} ORDER BY action_id;""".format(
@@ -176,17 +203,28 @@ class DB_Engine():
         project_subquery = "AND project_id = {}".format(
             args['project']) if 'project' in args else ""
         cur = self.connection.cursor()
-        cur.execute("""SELECT DISTINCT project_id, authority_id FROM actions WHERE TRUE {}
-                        ORDER BY project_id;""".format(
-            authority_subquery))
+        cur.execute("""
+            WITH votes_full AS (
+                SELECT v.user_id, is_upvote FROM votes v JOIN actions USING (action_id) WHERE TRUE {0} {1})
+                    (SELECT user_id, 0 as upvotes, 0 as downvotes FROM users
+                        WHERE user_id NOT IN (SELECT user_id FROM votes_full))
+                    UNION
+                    (SELECT user_id, 
+                            COUNT(CASE WHEN is_upvote THEN 1 END) AS upvotes, 
+                            COUNT(CASE WHEN NOT is_upvote THEN 1 END) AS downvotes 
+                        FROM votes_full WHERE TRUE {0} {1} GROUP BY user_id)
+                    ORDER BY user_id;""".format(authority_subquery, project_subquery))
         rows = cur.fetchall()
         cur.close()
         return True, rows
 
     def db_trolls(self, args):
         cur = self.connection.cursor()
-        cur.execute("""SELECT *, 
-                        (CASE WHEN to_timestamp({})::timestamp - last_active <= INTERVAL '365 days' THEN TRUE ELSE FALSE) FROM trolls JOIN users ON(user_id);""".format(args['timestamp']))
+        cur.execute("""SELECT user_id, t.upvotes, t.downvotes,
+                        (CASE WHEN to_timestamp({})::timestamp <= last_activity + INTERVAL '1 year' THEN TRUE 
+                                ELSE FALSE END) as active
+                        FROM trolls t JOIN users USING(user_id)
+                        ORDER BY t.downvotes-t.upvotes DESC, user_id;""".format(args['timestamp']))
         rows = cur.fetchall()
-        cur.close
+        cur.close()
         return True, rows

@@ -1,0 +1,109 @@
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": [[119, "protest", 261, 325, 0, 0], [166, "protest", 212, 309, 0, 0]]}
+{"status": "OK", "data": [[212, 309], [261, 325]]}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": [[119, "protest", 261, 325, 0, 0], [122, "support", 253, 265, 0, 0], [166, "protest", 212, 309, 0, 0]]}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[212, 309], [253, 265], [259, 300], [261, 325], [264, 302], [277, 279]]}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "OK", "data": [[212, 309], [230, 332], [245, 310], [253, 265], [259, 300], [261, 325], [264, 302], [277, 279]]}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "OK", "data": [[116, "protest", 264, 302, 0, 0], [119, "protest", 261, 325, 0, 0], [122, "support", 253, 265, 0, 0], [145, "support", 259, 300, 0, 0], [160, "protest", 245, 310, 0, 0], [166, "protest", 212, 309, 0, 0], [181, "support", 277, 279, 1, 0], [195, "support", 237, 351, 0, 0], [198, "protest", 230, 332, 0, 0]]}
+{"status": "OK", "data": [[116, "protest", 264, 302, 0, 0], [119, "protest", 261, 325, 0, 0], [122, "support", 253, 265, 0, 0], [145, "support", 259, 300, 0, 0], [160, "protest", 245, 310, 0, 0], [166, "protest", 212, 309, 0, 0], [181, "support", 277, 279, 1, 0], [195, "support", 237, 351, 0, 0], [198, "protest", 230, 332, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[1, 0, 0], [4, 0, 0], [8, 1, 0], [10, 0, 0]]}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[185, 268], [212, 309], [214, 308], [228, 324], [230, 332], [237, 351], [245, 310], [253, 265], [259, 300], [261, 325], [264, 302], [277, 279]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK", "data": [[185, 268], [212, 309], [214, 308], [228, 324], [230, 332], [237, 351], [245, 310], [253, 265], [259, 300], [261, 325], [264, 302], [277, 279]]}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK", "data": [[1, 0, 0], [4, 0, 0], [8, 1, 0], [10, 0, 0]]}
+{"status": "ERROR"}
+{"status": "OK", "data": [[1, 0, 0], [4, 0, 0], [8, 1, 0], [10, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "OK", "data": [[116, "protest", 264, 302, 0, 0], [119, "protest", 261, 325, 0, 0], [122, "support", 253, 265, 0, 0], [127, "support", 228, 324, 0, 0], [130, "protest", 185, 268, 0, 0], [145, "support", 259, 300, 0, 0], [160, "protest", 245, 310, 0, 0], [166, "protest", 212, 309, 0, 0], [180, "support", 214, 308, 0, 0], [181, "support", 277, 279, 1, 0], [195, "support", 237, 351, 0, 0], [198, "protest", 230, 332, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK", "data": [[1, 0, 0], [4, 0, 0], [8, 1, 0], [10, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}

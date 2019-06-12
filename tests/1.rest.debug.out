@@ -1,0 +1,8 @@
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader but doesnt exist"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader but doesnt exist"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}

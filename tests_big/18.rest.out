@@ -1,0 +1,142 @@
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": [[184, 331], [209, 323], [221, 313], [267, 345]]}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "OK", "data": []}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "true"]]}
+{"status": "OK", "data": [[6, 0, 0], [7, 0, 0], [8, 0, 0], [9, 0, 0], [10, 0, 1]]}
+{"status": "OK", "data": [[184, 331], [189, 307], [209, 323], [221, 313], [267, 345], [269, 334], [273, 307]]}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 0], [7, 0, 0], [8, 0, 0], [9, 0, 0], [10, 0, 1]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "true"]]}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "true"]]}
+{"status": "OK"}
+{"status": "OK", "data": [[184, 331], [185, 331], [189, 307], [209, 323], [211, 323], [221, 313], [260, 342], [267, 345], [269, 334], [273, 307]]}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "true"]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "true"]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[1, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0], [9, 0, 0], [10, 0, 1]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[106, "support", 211, 323, 0, 0], [108, "protest", 184, 331, 0, 0], [125, "protest", 274, 304, 0, 0], [130, "support", 273, 307, 0, 0], [136, "support", 189, 307, 0, 0], [140, "support", 267, 345, 0, 1], [149, "support", 185, 331, 0, 0], [178, "protest", 269, 334, 0, 0], [180, "support", 260, 342, 0, 0], [183, "protest", 221, 313, 0, 0], [193, "protest", 209, 323, 0, 0]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "true"]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[1, 0, 0], [6, 0, 0], [7, 0, 0], [8, 0, 0], [9, 0, 0], [10, 0, 1]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[106, "support", 211, 323, 0, 0], [108, "protest", 184, 331, 0, 0], [125, "protest", 274, 304, 0, 0], [130, "support", 273, 307, 0, 0], [136, "support", 189, 307, 0, 0], [140, "support", 267, 345, 0, 1], [144, "protest", 271, 341, 0, 0], [149, "support", 185, 331, 0, 0], [159, "support", 214, 342, 0, 0], [178, "protest", 269, 334, 0, 0], [180, "support", 260, 342, 0, 0], [183, "protest", 221, 313, 0, 0], [193, "protest", 209, 323, 0, 0]]}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[184, 331], [185, 331], [189, 307], [209, 323], [211, 323], [214, 342], [221, 313], [260, 342], [267, 345], [269, 334], [271, 341], [273, 307], [274, 304]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "OK"}
+{"status": "OK", "data": [[6, 0, 1, "false"]]}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}
+{"status": "ERROR"}

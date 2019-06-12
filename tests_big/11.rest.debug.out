@@ -1,0 +1,101 @@
+{"status": "OK"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "OK"}
+{"status": "OK", "data": [[156, "support", 189, 260, 0, 0], [166, "support", 262, 291, 0, 0]]}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK"}
+{"status": "OK", "data": [[189, 260], [262, 291], [264, 272]]}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK", "data": [[116, "protest", 280, 323, 0, 0], [137, "support", 264, 272, 0, 0], [156, "support", 189, 260, 0, 0], [162, "support", 206, 321, 0, 0], [166, "support", 262, 291, 0, 0]]}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK", "data": [[189, 260], [206, 321], [262, 291], [264, 272], [280, 323]]}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK", "data": [[4, 0, 0], [6, 0, 0], [7, 0, 0], [10, 0, 0]]}
+{"status": "OK", "data": [[187, 283], [189, 260], [206, 321], [262, 291], [264, 272], [280, 323]]}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK", "data": []}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK", "data": []}
+{"status": "ERROR", "debug": "ERROR:  Member must be leader"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": [[4, 0, 1, "true"]]}
+{"status": "OK", "data": [[183, 350], [187, 283], [189, 260], [206, 321], [231, 306], [237, 271], [262, 291], [263, 318], [264, 272], [280, 323]]}
+{"status": "OK", "data": [[183, 350], [187, 283], [189, 260], [206, 321], [231, 306], [237, 271], [262, 291], [263, 318], [264, 272], [280, 323]]}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK", "data": [[4, 0, 1, "true"]]}
+{"status": "OK", "data": [[4, 0, 1], [6, 0, 0], [7, 0, 0], [10, 0, 0]]}
+{"status": "ERROR", "debug": "ActionID already used!"}
+{"status": "OK", "data": [[4, 0, 1, "true"]]}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ActionID already used!"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK"}
+{"status": "OK"}
+{"status": "OK", "data": [[4, 0, 1, "true"]]}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK", "data": [[4, 0, 1], [6, 0, 0], [7, 0, 0], [10, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": [[4, 0, 1], [6, 0, 0], [7, 0, 0], [10, 0, 0]]}
+{"status": "OK"}
+{"status": "OK", "data": [[4, 0, 1, "false"]]}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK", "data": [[4, 0, 1, "false"]]}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "OK", "data": [[4, 0, 1], [6, 0, 0], [7, 0, 0], [10, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK", "data": [[4, 0, 1], [6, 0, 0], [7, 0, 0], [10, 0, 0]]}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "OK"}
+{"status": "ERROR", "debug": "User can't cast vote on action that does not exist!"}
+{"status": "ERROR", "debug": "ERROR:  Member inactive"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
+{"status": "ERROR", "debug": "ERROR:  Incorrect member password"}
