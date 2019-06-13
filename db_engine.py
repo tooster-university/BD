@@ -3,14 +3,14 @@ from enum import Enum
 from decimal import Decimal
 
 
+# command execution modes
 class Mode(Enum):
-    NONE = 0
-    USER = 1
-    LEADER = 2
-
+    NONE = 0   # can be run without authentication
+    USER = 1   # can be run by users with authentication, creates user if doesn't exist
+    LEADER = 2 # can be run only by eader with authentication
 
 class Command():
-
+    # binding is a function bound to this command
     def __init__(self, engine, mode, binding):
         self.engine = engine
         self.mode = mode
@@ -33,11 +33,14 @@ class Command():
         retval = {}
         try:
             # execute if timestamp not needed ('open') or timestamp > last tiemstamp
-            if 'timestamp' not in args or args['timestamp'] > self.engine.timestamp:
-                if self.engine.db_auth(self.mode, args):
+            if ('timestamp' not in args  # not timed command
+            or self.engine.timestamp is None  # first timed command
+            or args['timestamp'] > self.engine.timestamp):
+                if self.engine.__db_auth__(self.mode, args):
                     success, data = self.binding(args)
         except Exception as e:  # all exceptions are caught and status remains failed
-            retval['debug'] = str(e)
+            if self.engine.verbose:
+                retval['debug'] = str(e)
 
         if not success:
             retval['status'] = 'ERROR'
@@ -46,45 +49,46 @@ class Command():
             # bump timestamp on success
             if 'timestamp' in args:
                 self.engine.timestamp = args['timestamp']
-                            # update last activity
-                cur = self.engine.connection.cursor()
-                cur.execute("UPDATE users SET last_activity=to_timestamp({})::timestamp WHERE user_id = {};".format(
-                            args['timestamp'], args['member']))
-                cur.close()
-
             if data is not None:
                 retval['data'] = self.__sanitize_types__(data)
         return retval
 
-
+# creates new DB engine 
 class DB_Engine():
 
     def __init__(self):
         self.connection = None
-        self.timestamp = 0
+        self.timestamp = None # represents last timestamp BUT FOR SESSION
         self.commands = {
-            "open":     Command(self, Mode.NONE, self.db_open),
-            "leader":   Command(self, Mode.NONE, self.db_leader),
-            "support":  Command(self, Mode.USER, lambda args: self.db_add_action(+1, args)),
-            "protest":  Command(self, Mode.USER, lambda args: self.db_add_action(-1, args)),
-            "upvote":   Command(self, Mode.USER, lambda args: self.db_vote(+1, args)),
-            "downvote": Command(self, Mode.USER, lambda args: self.db_vote(-1, args)),
-            "actions":  Command(self, Mode.LEADER, self.db_actions),
-            "projects": Command(self, Mode.LEADER, self.db_projects),
-            "votes":    Command(self, Mode.LEADER, self.db_votes),
-            "trolls":   Command(self, Mode.NONE, self.db_trolls)
+            "open":     Command(self, Mode.NONE, self.__db_open__),
+            "leader":   Command(self, Mode.NONE, self.__db_leader__),
+            "support":  Command(self, Mode.USER, lambda args: self.__db_add_action__(+1, args)),
+            "protest":  Command(self, Mode.USER, lambda args: self.__db_add_action__(-1, args)),
+            "upvote":   Command(self, Mode.USER, lambda args: self.__db_vote__(+1, args)),
+            "downvote": Command(self, Mode.USER, lambda args: self.__db_vote__(-1, args)),
+            "actions":  Command(self, Mode.LEADER, self.__db_actions__),
+            "projects": Command(self, Mode.LEADER, self.__db_projects__),
+            "votes":    Command(self, Mode.LEADER, self.__db_votes__),
+            "trolls":   Command(self, Mode.NONE, self.__db_trolls__)
         }
         self.init_setup_flag = False
+        self.verbose = False
 
+    # returned objects will contain debug: information on status "ERROR"
+    def set_verbose(self):
+        self.verbose = True
+
+    # switches engine to first-launch mode
     def init_setup(self):
         self.init_setup_flag = True
 
+    #executes given command as specified in API
     def execute_command(self, command):
         for alias in command:  # there is only one key in command
             return self.commands[alias].execute(command[alias])
 
     # manages authentication, timestamp bumping and creating users for Mode.USER commands
-    def db_auth(self, mode, auth_data):
+    def __db_auth__(self, mode, auth_data):
         if(mode == Mode.NONE):
             return True
 
@@ -121,15 +125,16 @@ class DB_Engine():
             if row is None:
                 return False  # user is frozen
 
-            # # update last activity
-            # cur.execute("UPDATE users SET last_activity=to_timestamp({})::timestamp WHERE user_id = {};".format(
-            #     auth_data['timestamp'], auth_data['member']))
+            # update last activity
+            cur.execute("UPDATE users SET last_activity=to_timestamp({})::timestamp WHERE user_id = {};".format(
+                auth_data['timestamp'], auth_data['member']))
 
             cur.close()
             # check permissions
             return mode == Mode.USER or mode == Mode.LEADER and row[0]
 
-    def db_open(self, args):
+    # connects to database
+    def __db_open__(self, args):
         self.connection = psycopg2.connect("dbname={} user={} password={}".format(
             args['database'], args['login'], args['password']))
         self.connection.set_session(autocommit=True)
@@ -141,7 +146,8 @@ class DB_Engine():
             self.init_setup_flag = False
         return True, None
 
-    def db_leader(self, args):
+    # creates leader
+    def __db_leader__(self, args):
 
         cur = self.connection.cursor()
         cur.execute("INSERT INTO users VALUES ({}, crypt('{}', gen_salt('md5')), TRUE, to_timestamp({})::timestamp, 0, 0);".format(
@@ -149,7 +155,8 @@ class DB_Engine():
         cur.close()
         return True, None
 
-    def db_add_action(self, karma, args):
+    # creates support if karma > 0, otherwise creates protest
+    def __db_add_action__(self, karma, args):
         if 'authority' not in args:  # when authority is ommitted
             args['authority'] = 0
 
@@ -159,7 +166,8 @@ class DB_Engine():
         cur.close()
         return True, None
 
-    def db_vote(self, karma, args):
+    # creates vote for if karme > 0, otherwise creates vote against
+    def __db_vote__(self, karma, args):
         cur = self.connection.cursor()
         # nonexisting action results in foreign key violation
         cur.execute("INSERT INTO votes VALUES ({}, {}, {});".format(
@@ -167,7 +175,8 @@ class DB_Engine():
         cur.close()
         return True, None
 
-    def db_actions(self, args):
+    # returns actions with specified criteria
+    def __db_actions__(self, args):
         type_subquery = "AND is_support = {}".format(
             'TRUE' if args['type'] == 'support' else 'FALSE') if 'type' in args else ""
         project_subquery = "AND project_id = {}".format(
@@ -186,7 +195,8 @@ class DB_Engine():
         cur.close()
         return True, rows
 
-    def db_projects(self, args):
+    # returns projects with specified criteria
+    def __db_projects__(self, args):
         authority_subquery = "AND authority_id = {}".format(
             args['authority']) if 'authority' in args else ""
         cur = self.connection.cursor()
@@ -197,15 +207,17 @@ class DB_Engine():
         cur.close()
         return True, rows
 
-    def db_votes(self, args):
-        authority_subquery = "AND authority_id = {}".format(
-            args['authority']) if 'authority' in args else ""
+    # returns votes summary with specified criteria
+    def __db_votes__(self, args):
+        action_subquery = "AND action_id = {}".format(
+            args['action']) if 'action' in args else ""
         project_subquery = "AND project_id = {}".format(
             args['project']) if 'project' in args else ""
         cur = self.connection.cursor()
         cur.execute("""
             WITH votes_full AS (
-                SELECT v.user_id, is_upvote FROM votes v JOIN actions USING (action_id) WHERE TRUE {0} {1})
+                SELECT v.user_id, action_id, project_id, is_upvote 
+                FROM votes v JOIN actions USING (action_id) WHERE TRUE {0} {1})
                     (SELECT user_id, 0 as upvotes, 0 as downvotes FROM users
                         WHERE user_id NOT IN (SELECT user_id FROM votes_full))
                     UNION
@@ -213,12 +225,13 @@ class DB_Engine():
                             COUNT(CASE WHEN is_upvote THEN 1 END) AS upvotes, 
                             COUNT(CASE WHEN NOT is_upvote THEN 1 END) AS downvotes 
                         FROM votes_full WHERE TRUE {0} {1} GROUP BY user_id)
-                    ORDER BY user_id;""".format(authority_subquery, project_subquery))
+                    ORDER BY user_id;""".format(action_subquery, project_subquery))
         rows = cur.fetchall()
         cur.close()
         return True, rows
 
-    def db_trolls(self, args):
+    # returns current trolls
+    def __db_trolls__(self, args):
         cur = self.connection.cursor()
         cur.execute("""SELECT user_id, t.upvotes, t.downvotes,
                         (CASE WHEN to_timestamp({})::timestamp <= last_activity + INTERVAL '1 year' THEN TRUE 

@@ -8,6 +8,8 @@ def main(arg):
 
     if len(sys.argv) > 1 and sys.argv[1] == "--init":
         engine.init_setup()
+
+    # engine.set_verbose()
     for line in sys.stdin.readlines():
         cmd = json.loads(line)
         retval = engine.execute_command(cmd)

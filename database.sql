@@ -69,11 +69,25 @@ BEGIN
 END;
 $BODY$ LANGUAGE plpgsql;
 
-CREATE TRIGGER on_vote_trig
+CREATE TRIGGER after_vote_trig
     AFTER INSERT
     ON votes
     FOR EACH ROW EXECUTE PROCEDURE update_votes();
 
+CREATE OR REPLACE FUNCTION on_new_vote() RETURNS TRIGGER AS $BODY$ 
+BEGIN
+    IF EXISTS (SELECT * FROM ID WHERE id = New.action_id AND id_type = 'action'::id_type_enum) THEN
+        RETURN NEW;
+    ELSE
+        RAISE EXCEPTION 'Given action does not exist';
+    END IF;
+END;
+$BODY$ LANGUAGE plpgsql;
+
+CREATE TRIGGER on_new_vote_trig
+    BEFORE INSERT
+    ON votes
+    FOR EACH ROW EXECUTE PROCEDURE on_new_vote();
 ---
 CREATE OR REPLACE FUNCTION on_new_action () RETURNS TRIGGER AS $BODY$
 BEGIN
